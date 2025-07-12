@@ -1,3 +1,5 @@
+#include "config.h"
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -46,6 +48,9 @@ std::vector<char> processColumn(const std::vector<std::string>& rawData) {
 }
 
 int main() {
+	std::cout << "tris-stalker v" << VERSION << '\n';
+	std::cout << "------------------------------\n";
+
     std::ifstream file(FILENAME);
     if (!file.is_open()) {
         std::cerr << "Error: no se pudo abrir '" << FILENAME << "'\n";
@@ -76,6 +81,7 @@ int main() {
     for (int col = 0; col < NUM_COLUMNS; ++col) {
         matrix[col] = processColumn(rawData[col]);
     }
+	
 
     // Imprimir matriz procesada
     std::cout << "\n--- Matriz procesada (columnas con valores únicos) ---\n";
